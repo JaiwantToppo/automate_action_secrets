@@ -1,0 +1,5 @@
+- name: Run Tests
+  env:
+      DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME 
+  run: |
+      nbdev_test_nbs
