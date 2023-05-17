@@ -1,0 +1,25 @@
+name: Run Python Script
+
+on:
+  workflow_dispatch:
+
+env:
+  client_id: ${{ secrets.CLIENT_ID }}
+  client_secret: ${{ secrets.CLIENT_SECRET }}
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.11"
+
+      - name: Run Python Script
+        run: |
+          pip install PyGithub python-dotenv
+          python upload_secrets.py
