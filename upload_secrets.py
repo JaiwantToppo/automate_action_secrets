@@ -6,7 +6,8 @@ from config import repository_url, secrets
 # Load environment variables from .env file
 load_dotenv()
 
-def upload_secrets(repository_url, secrets):
+
+def upload_secrets(secrets):
     # Create a PyGithub instance using the developer token
     g = Github(os.environ.get("GITHUB_TOKEN"))
 
@@ -31,5 +32,4 @@ def upload_secrets(repository_url, secrets):
     print("Secrets uploaded and updated successfully.")
 
 
-
-upload_secrets(repository_url, secrets)
+upload_secrets(secrets)
